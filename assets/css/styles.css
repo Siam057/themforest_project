@@ -1,0 +1,1499 @@
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --black-color: hsl(220, 24%, 12%);
+  --black-color-light: hsl(220, 24%, 15%);
+  --black-color-lighten: hsl(220, 20%, 18%);
+  --white-color: #fff;
+  --body-color: hsl(220, 100%, 97%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --normal-font-size: .938rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1024px) {
+  :root {
+    --normal-font-size: 1rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  list-style: none;
+  text-transform: none;
+  transition: all .2s linear;
+}
+
+html,body {
+  font-family: var(--body-font);
+  font-size: 62.5%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+
+
+section{
+  padding: 7rem 9%;
+}
+
+ul {
+  list-style: none;
+  /* Color highlighting when pressed on mobile devices */
+  /*-webkit-tap-highlight-color: transparent;*/
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+/*=============== HEADER ===============*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--black-color);
+  box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
+  z-index: var(--z-fixed);
+}
+
+/*=============== NAV ===============*/
+.nav {
+  height: var(--header-height);
+}
+
+.nav__logo, 
+.nav__burger, 
+.nav__close {
+  color: var(--white-color);
+}
+
+.nav__data {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  font-size: 2rem;
+  display: inline-flex;
+  align-items: center;
+  column-gap: .25rem;
+  font-weight: var(--font-semi-bold);
+  /* Color highlighting when pressed on mobile devices */
+  /*-webkit-tap-highlight-color: transparent;*/
+}
+
+.nav__logo i {
+  font-weight: initial;
+  font-size: 2rem;
+}
+
+.nav__toggle {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.nav__burger, 
+.nav__close {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  inset: 0;
+  margin: auto;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: opacity .1s, transform .4s;
+}
+
+.nav__close {
+  opacity: 0;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 1118px) {
+  .nav__menu {
+    position: absolute;
+    left: 0;
+    top: 2.5rem;
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    overflow: auto;
+    pointer-events: none;
+    opacity: 0;
+    transition: top .4s, opacity .3s;
+  }
+  .nav__menu::-webkit-scrollbar {
+    width: 0;
+  }
+  .nav__list {
+    background-color: var(--black-color);
+    padding-top: 1rem;
+  }
+}
+
+.nav__link {
+  color: var(--white-color);
+  background-color: var(--black-color);
+  font-size: 1.6rem;
+  font-weight: var(--font-semi-bold);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color .3s;
+}
+
+.nav__link:hover {
+  background-color: var(--black-color-light);
+}
+
+/* Show menu */
+.show-menu {
+  opacity: 1;
+  top: 3.5rem;
+  pointer-events: initial;
+}
+
+/* Show icon */
+.show-icon .nav__burger {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+.show-icon .nav__close {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+/*=============== DROPDOWN ===============*/
+.dropdown__item {
+  cursor: pointer;
+}
+
+.dropdown__arrow {
+  font-size: 1.25rem;
+  font-weight: initial;
+  transition: transform .4s;
+}
+
+.dropdown__link, 
+.dropdown__sublink {
+  font-size: 1.6rem;
+  padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+  color: var(--white-color);
+  background-color: var(--black-color-light);
+  display: flex;
+  align-items: center;
+  column-gap: .5rem;
+  font-weight: var(--font-semi-bold);
+  transition: background-color .3s;
+}
+
+.dropdown__link i, 
+.dropdown__sublink i {
+  font-size: 1.25rem;
+  font-weight: initial;
+}
+
+.dropdown__link:hover, 
+.dropdown__sublink:hover {
+  background-color: var(--black-color);
+}
+
+.dropdown__menu, 
+.dropdown__submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease-out;
+}
+
+/* Show dropdown menu & submenu */
+.dropdown__item:hover .dropdown__menu, 
+.dropdown__subitem:hover > .dropdown__submenu {
+  max-height: 1000px;
+  transition: max-height .4s ease-in;
+}
+
+/* Rotate dropdown icon */
+.dropdown__item:hover .dropdown__arrow {
+  transform: rotate(180deg);
+}
+
+/*=============== DROPDOWN SUBMENU ===============*/
+.dropdown__add {
+  margin-left: auto;
+}
+
+.dropdown__sublink {
+  background-color: var(--black-color-lighten);
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 340px) {
+  .container {
+    margin-inline: 1rem;
+  }
+
+  .nav__link {
+    padding-inline: 1rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1118px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav__toggle {
+    display: none;
+  }
+  .nav__list {
+    height: 100%;
+    display: flex;
+    column-gap: 3rem;
+  }
+  .nav__link {
+    height: 100%;
+    padding: 0;
+    justify-content: initial;
+    column-gap: .25rem;
+  }
+  .nav__link:hover {
+    background-color: transparent;
+  }
+
+  .dropdown__item, 
+  .dropdown__subitem {
+    position: relative;
+  }
+
+  .dropdown__menu, 
+  .dropdown__submenu {
+    max-height: initial;
+    overflow: initial;
+    position: absolute;
+    left: 0;
+    top: 6rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s, top .3s;
+  }
+
+  .dropdown__link, 
+  .dropdown__sublink {
+    padding-inline: 1rem 3.5rem;
+  }
+
+  .dropdown__subitem .dropdown__link {
+    padding-inline: 1rem;
+  }
+
+  .dropdown__submenu {
+    position: absolute;
+    left: 100%;
+    top: .5rem;
+  }
+
+  /* Show dropdown menu */
+  .dropdown__item:hover .dropdown__menu {
+    opacity: 1;
+    top: 5.5rem;
+    pointer-events: initial;
+    transition: top .3s;
+  }
+
+  /* Show dropdown submenu */
+  .dropdown__subitem:hover > .dropdown__submenu {
+    opacity: 1;
+    top: 0;
+    pointer-events: initial;
+    transition: top .3s;
+  }
+}
+
+
+/* Herosection Start  */
+
+.banar{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider{
+  width: 100%;
+  height: 100%;
+}
+
+#sliderimage{
+  width: 100%;
+  height: 155vh;
+  animation: Zoom 3s linear infinite;
+}
+
+@keyframes Zoom{
+  0%{
+      transform: scale(1.3);
+  }
+
+  15%{
+      transform: scale(1);
+  }
+
+  85%{
+      transform: scale(1);
+  }
+
+  100%{
+      transform: scale(1.3);
+  }
+  
+}
+
+
+.overley{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+  position: absolute;
+  top: 0;
+  padding: 7rem 9%;
+  text-align: center;
+}
+
+.overley .brand .nav__logo {
+  padding-top: 5rem;
+  font-size: 4rem;
+}
+.overley  .brand .nav__logo i{
+  font-size: 3rem;
+}
+
+.Heading_text h1{
+  letter-spacing: 1px;
+  color: white;
+  font-size: 2rem;
+  padding-bottom: 1rem;
+  font-weight: 400;
+}
+
+.Heading_text h3{
+  color: white;
+  font-size: 7rem;
+  font-weight: 500;
+  padding-bottom: 2rem;
+}
+.btn{
+  padding: 1rem 2rem;
+  background: none;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  background: #000;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: green;
+  font-size: 1.6rem;
+  font-weight: 600;
+  background: transparent;
+  color: #fff;
+}
+
+.btn:hover{
+  backdrop-filter: blur(80px) ;
+}
+
+.btn::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #aa8453;
+  width: 0%;
+  height: 100%;
+  z-index: -1;
+  transition: all 0.5s ease;
+  color: white;
+}
+.btn:hover::before{
+  width: 100%;
+  color: #000;
+}
+
+
+
+
+
+.btn_2{
+  padding: 1rem 2rem;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  background: #aa8453;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.btn_2::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  width: 0%;
+  height: 100%;
+  z-index: -1;
+  transition: all 0.5s ease;
+  color: white;
+}
+
+.btn_2:hover::before{
+  width: 100%;
+}
+
+.check_now{
+  width: 100%;
+  display: flex;
+  text-align: start;
+  gap: 2px;
+  background: white;
+  margin-top: 5rem;
+  padding: 2rem;
+  justify-content: space-between;
+  border-radius: 20px;
+}
+
+.check_now .input p{
+  font-size: 2rem;
+  color: black;
+}
+
+.check_now .input input{
+  border: 2px solid white;
+  color: grey;
+  font-size: 1rem;
+  background: #d9ebec;
+  padding: .5rem;
+}
+.check_now .input input:focus{
+  border: 2px solid rgb(100, 197, 241);
+}
+
+/* Responsive ><><><<> */
+@media(max-width: 568px){
+  .Heading_text h3{
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 500;
+  }
+
+  .check_now{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    text-align: center;
+    gap: 2rem;
+    background: white;
+    margin-top: 2rem;
+    padding: 1rem;
+    justify-content: space-between;
+    border-radius: 20px;
+  }
+  
+}
+/* Luxreous_room start */
+.Luxreous_room{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 4rem;
+}
+
+.Luxreous_room .iamge{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+
+}
+.Luxreous_room .iamge::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  transform: translateY(0rem);
+  background: #05f3ff56;
+}
+
+.Luxreous_room .iamge:hover::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2%;
+  background: #05f3ff56;
+  animation: hoverefect 1s linear;
+}
+@keyframes hoverefect{
+  0%{
+    transform: translateY(0);
+  }
+
+  100%{
+    transform: translateY(80rem);
+  }
+}
+
+.Luxreous_room .iamge img{
+  width: 100%;
+  height: 100%;
+}
+
+.Luxreous_room .side_text{
+  width: 100%;
+  height: 100%;
+}
+.Luxreous_room .side_text h1{
+  font-size: 2rem;
+  font-weight: 500;
+  color: #787878 ;
+  letter-spacing: 1rem;
+}
+
+.Luxreous_room .side_text h3{
+  font-size: 4rem;
+  font-weight: 600;
+  color: #1b1a1a ;
+  letter-spacing: 1px;
+  margin-top: 2.5rem;
+}
+
+.Luxreous_room .iamge .overley{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.411),rgba(0, 0, 0, 0.377));
+  position: absolute;
+  top: 0;
+}
+
+
+.Luxreous_room .iamge .overley .Overley_image_1{
+  width: 300px;
+  height: 300px;
+  margin-top: 20rem;
+  border-radius: 10px;
+  animation: photo 3s linear infinite;
+}
+@keyframes photo{
+  0%{
+    transform: translateY(0);
+  }
+
+  75%{
+    transform: translateY(20px);
+  }
+
+  100%{
+    transform: translateY(0);
+  }
+}
+.Luxreous_room .iamge .overley .Overley_image_2{
+  position: absolute;
+  width: 195px;
+  height: 195px;
+  padding: 2rem;
+  background-color: #fff;
+  right: 0;
+  bottom: 0;
+  object-fit: cover cover;
+  transform: translateY(10px);
+}
+
+.Luxreous_room .iamge .overley .playButtone{
+  position:absolute;
+  width: 145px;
+  height: 145px;
+  top: 1%;
+  right: 1%;
+  border: 2px solid white;
+}
+
+.Luxreous_room .iamge .overley .playButtone a i{
+  font-size: 3rem;
+  background-color: red;
+  padding: 1rem 3rem;
+  border-radius: 10px;
+  color: #fff;
+  margin-top: 4rem;
+
+}
+
+.Luxreous_room .iamge .overley .playButtone a i:hover{
+  border-radius: 80px;
+}
+/* Responsive */
+@media(max-width: 568px){
+  .Luxreous_room{
+    width: 90%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 1rem;
+    margin: auto;
+    align-items: center;
+  }
+
+  .Luxreous_room .iamge .overley .Overley_image_1{
+    width: 200px;
+    height: 200px;
+    margin-top: 4rem;
+    border-radius: 10px;
+    animation: photo 3s linear infinite;
+    object-fit: cover cover;
+  }
+
+  .Luxreous_room .iamge .overley .Overley_image_2{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    padding: 2rem;
+    background-color: #fff;
+    right: 0;
+    bottom: 0;
+    object-fit: cover cover;
+    transform: translateY(10px);
+  }
+
+  
+.Luxreous_room .iamge .overley .playButtone{
+  position:absolute;
+  width: 105px;
+  height: 105px;
+  top: 1%;
+  right: 1%;
+  border: 2px solid white;
+}
+
+.Luxreous_room .iamge .overley .playButtone a i{
+  font-size: 3rem;
+  background-color: red;
+  padding: 1rem 3rem;
+  border-radius: 10px;
+  color: #fff;
+  margin-top: 2rem;
+}
+
+}
+
+.side_text .text{
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: #6f6f6f;
+  padding-top: 2rem ;
+}
+.side_text .icons{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  margin-top: 9rem;
+}
+
+
+.side_text .icons .icon_text{
+  display: flex;
+  gap: 1rem;
+}
+
+.side_text .icons .icon_text i{
+  color: black;
+  font-size: 4rem;
+}
+
+.side_text .icons .icon_text p{
+  font-size: 1.9rem;
+  font-weight: 500;
+  width: 100px;
+}
+
+.side_text .icons .icon_text .fa-phone-volume {
+  color: #aa8453;
+}
+
+
+
+/* +++>>>>>>>>>> Luxarious Room Card <<<<<<<<<<<< */
+.lexrious_room_card{
+  width: 100%;
+  height: 100%;
+  background: #f8f5f0;
+}
+
+.lexrious_room_card h1{
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #787878 ;
+  letter-spacing: 1rem;
+}
+
+.lexrious_room_card h3 {
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 600;
+  color: #222222 ;
+  letter-spacing: 1px;
+  margin-top: 2.5rem;
+  padding-bottom:3rem ;
+}
+
+.room_card{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 4rem;
+}
+
+.room_card .card{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+}
+
+.room_card .card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.room_card .card:hover img:hover{
+  transform: scale(1.1);
+}
+.card_overley:hover img:hover{
+  transform: scale(1.1);
+}
+
+.intro{
+  bottom:-13rem;
+  position: absolute;
+  background:rgba(0, 0, 0, 0.651);
+  width: 100%;
+  padding: 1.5rem;
+  transition: all ease 0.6s;
+  cursor: pointer;
+}
+.card:hover .intro {
+  bottom:0rem;
+}
+.intro h1 {
+  color: white;
+  text-align: end;
+  font-size: 2rem;
+  letter-spacing: 0px;
+}
+
+.intro h4 {
+  color: white;
+  text-align: end;
+  font-size: 1.5rem;
+  letter-spacing: 0px;
+  font-weight: 400;
+  border-bottom: 2px solid white;
+  padding-bottom: 20px;
+}
+
+#btn_border{
+  border: 2px solid #aa8453;
+}
+
+.pratext{
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 4rem;
+}
+.Pratext_icon{
+  display: flex;
+  gap: 1rem;
+}
+.Pratext_icon i{
+  cursor: pointer;
+  font-size: 2rem;
+  color: white;
+}
+
+/*******************************Services Section Start*************************/
+
+.services{
+  width: 100%;
+  height: 100%;
+}
+
+.services .services_heading h1{
+  text-align: center;
+  font-size: 1.6rem;
+  letter-spacing: 10px;
+  color: #787878;
+  padding-bottom: 2rem;
+}
+
+.services .services_heading h2{
+  text-align: center;
+  font-size: 4rem;
+  color: #222222;
+  padding-bottom: 2rem;
+}
+
+.services_card{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2rem;
+}
+
+.services_card .Card{
+  width: 100%;
+  height: 100%;
+  border: 1px solid #aa8453a9;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+.services_card .Card .span{
+  width: 100px;
+  height: 10px;
+  background-color: #f8f5f0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+  outline: none;
+  border: none;
+}
+
+.services_card .Card i{
+  text-align: center;
+  font-size: 4rem;
+  color: #aa8453;
+  padding: 2rem;
+  transition: all 0.4s linear;
+}
+
+.services_card .Card:hover{
+  background: #222222;
+  border: 1px solid #222222;
+}
+
+.services_card .Card:hover i{
+  rotate: 360deg;
+  color: white;
+}
+
+.services_card .Card h1{
+  font-size: 2rem;
+  color: #222222;
+  font-weight: 500;
+}
+
+.services_card .Card:hover h1{
+  color: #fff;
+}
+
+.services_card .Card p{
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #6f6f6f;
+  padding: 3rem;
+  
+}
+
+.services_card .Card:hover p{
+  color: #fff;
+}
+
+/* promotional section Start */
+.promotional{
+  width: 100%;
+  height: 100%;
+  padding: 0%;
+  position: relative;
+}
+.promotional img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overley2{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+  position: absolute;
+  top: 0;
+  padding: 7rem 9%;
+}
+.overley2  i{
+  font-size: 4rem;
+  color: #aa8453;
+  border: 2px solid white ;
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  border-radius: 100px;
+  backdrop-filter: blur(80px);
+  text-align: center;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  cursor: pointer;
+}
+
+.overley2 h1{
+  font-size: 2.5rem;
+  letter-spacing: 2rem;
+  color: #6f6f6f;
+  margin-top: 10rem;
+}
+
+
+.overley2 h2{
+  font-size: 5.5rem;
+  color: #ffffff;
+  margin-top: 10rem;
+  padding-bottom: 2rem;
+}
+
+.overley2 h3{
+  font-size: 5.5rem;
+  color: #ffffff;
+}
+
+
+/************************ anothe_feture start **********************/
+.anothe_feture{
+  width: 100%;
+}
+.anothe_feture .row_card{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: 10rem;
+}
+
+.anothe_feture .row_card .cards{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+.anothe_feture .row_card .cards .card_image{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.anothe_feture .row_card .cards .card_image img{
+  width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+.anothe_feture .row_card .cards .card_image img:hover{
+  transform: scale(1.1);
+}
+
+
+.anothe_feture .row_card .cards .texts{
+  width: 100%;
+}
+
+.anothe_feture .row_card .cards .texts{
+  width: 100%;
+  height: 100%;
+  background: #f8f5f0;
+  padding: 2rem;
+}
+
+.anothe_feture .row_card .cards .texts h1{
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 8px;
+}
+
+.anothe_feture .row_card .cards .texts h2{
+  font-size: 4rem;
+  font-weight: 500;
+  padding-bottom: 2rem;
+  color: #222222;
+}
+
+.anothe_feture .row_card .cards .texts p{
+  color: #6f6f6f;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  padding-bottom: 2rem;
+}
+
+.another_btn{
+  border-radius: 0;
+}
+
+ /*><><><><><><>><><><><> Testimonial Start><><><><><><>><><><><>  */
+.testimonial{
+  width: 100%;
+  height: 100vh;
+  background: url('/image/backgroud_slider.jpg');
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  padding: 0;
+}
+
+.overley4{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg,#aa845311,#cc954e);
+  position: absolute;
+  top: 0;
+  padding: 7rem 9%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+.card{
+  width: 100%;
+}
+
+.overley4 .teste_card{
+  width: 100%;
+}
+.overley4 .teste_card h1{
+  font-size: 2rem;
+  font-weight: 400;
+  color: white;
+  letter-spacing: 10px;
+  padding-bottom: 2rem;
+}
+
+.overley4 .teste_card h2{
+  font-size: 4rem;
+  font-weight: 500;
+  color: white;
+  padding-bottom: 2rem;
+}
+.image_text{
+  display:flex;
+  gap: 1rem;
+}
+.image_text img{
+width: 200px;
+height: 300px;
+object-fit: cover;
+border-radius: 10px;
+}
+
+.content .icon{
+  color: white;
+}
+
+.content p{
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: #fff;
+  padding: 2rem 0;
+}
+
+.content h4{
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  color: #fff;
+  padding: .1rem 0;
+  font-weight: 500;
+}
+
+.content h5{
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: #fff;
+  font-weight: 400;
+}
+
+/* Resturent Frute Iteamsection start*/
+
+.resturent_froute{
+  width: 100%;
+  height: 100%;
+  background: #faf7f2;
+}
+
+.resturent_froute .head_text{
+  width: 100%;
+  text-align: center;
+}
+
+.resturent_froute .head_text h1{
+  font-size: 2rem;
+  color: #787878;
+  letter-spacing: 10px;
+}
+.resturent_froute .head_text h2{
+  font-size: 4rem;
+  color: #222222;
+  letter-spacing: 1px;
+  font-weight: 500;
+  padding-top: 2rem;
+}
+
+.resturent_froute  .menu{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  padding-top: 5rem;
+  gap: 3rem;
+}
+
+.resturent_froute  .menu .left_menu{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: 2rem;
+}
+
+.uptext{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.uptext h3{
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #787878;
+}
+
+.Downtext{
+  display: flex;
+  justify-content: space-between;
+}
+
+.Downtext h3{
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.Downtext h4{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.Downtext .border_botom{
+  border-bottom: 3px dotted #aa8453;
+  width: 200px;
+  margin-bottom: 15px;
+}
+
+.resturent_froute  .menu .left_menu .menu_card .text_style{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: 1rem;
+}
+.menu_card{
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+}
+.menu_card img{
+  width: 100px;
+  object-fit: cover;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.menu_card:hover img{
+  transform: scale(1.1);
+}
+
+.change{
+  font-size: 1rem;
+  padding: 0 .5rem;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+
+.Downtext button{
+  visibility: hidden;
+}
+
+.bt button{
+  visibility: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Responsive Start ======== */
+@media(max-width: 568px){
+  .side_text .icons{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    gap: 2.5rem;
+    margin-top: 5rem;
+  }
+
+  .side_text .icons .icon_text p{
+    font-size: 2.2rem;
+    font-weight: 500;
+    width: 100%;
+  }
+
+  .Luxreous_room .side_text h3{
+    font-size: 3rem;
+    font-weight: 600;
+    color: #1b1a1a ;
+    letter-spacing: 1px;
+    margin-top: 2.5rem;
+  }
+  .Luxreous_room .side_text h1{
+    text-align: center;
+  }
+
+  .Luxreous_room{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 8rem;
+  }
+
+
+  .room_card{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 4rem;
+  }
+
+  .card:hover .intro {
+    bottom:-5rem;
+  }
+
+  .lexrious_room_card h3 {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #222222 ;
+    letter-spacing: 1px;
+    margin-top: 2.5rem;
+    padding-bottom:3rem ;
+  }
+  .services_card{
+    grid-template-columns: repeat(1,1fr);
+
+  }
+
+
+
+
+
+  .overley2 h1{
+    font-size: 2rem;
+    letter-spacing: 2rem;
+    color: #6f6f6f;
+    margin-top: 20rem;
+    font-weight: 600;
+    line-height: 4rem;
+  }
+  
+  
+  .overley2 h2{
+    font-size: 3rem;
+    color: #ffffff;
+    margin-top: 10rem;
+    padding-bottom: 2rem;
+    font-weight: 400;
+  }
+  
+  .overley2 h3{
+    font-size: 3.5rem;
+    color: #ffffff;
+    font-weight: 400;
+  }
+
+  .promotional{
+    width: 100%;
+    height: 120vh;
+    padding: 0%;
+    position: relative;
+  }
+
+
+  .anothe_feture .row_card .cards{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+  }
+  
+  .anothe_feture .row_card .cards .texts h2{
+    font-size: 3rem;
+    font-weight: 500;
+    padding-bottom: 2rem;
+    color: #222222;
+  }
+
+  .overley4 .card{
+    display: none;
+  }
+
+  .overley4 .teste_card h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 8px;
+    padding-bottom: 2rem;
+  }
+  
+  .overley4 .teste_card h2{
+    font-size: 3rem;
+    font-weight: 500;
+    color: white;
+    padding-bottom: 2rem;
+  }
+
+  .overley4{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,#aa84534f,#cc954e);
+    position: absolute;
+    top: 0;
+    padding: 7rem 9%;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+  }
+
+  .image_text{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 2rem;
+  }
+
+.testimonial{
+  width: 100%;
+  height: 125vh;
+  background: url('/image/backgroud_slider.jpg');
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  padding: 0;
+}
+.border_botom{
+  visibility: hidden;
+  display: none;
+}
+
+.uptext button{
+  display: none ;
+}
+
+.Downtext button{
+ visibility: visible;
+}
+
+.resturent_froute  .menu{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+}
+
+
+.bt button{
+  visibility: visible;
+}
+
+
+
+
+}

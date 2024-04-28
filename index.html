@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Responsive dropdown menu - Bedimcode</title>
+            <!--=============== REMIXICONS ===============-->
+            <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+            <!--=============== CSS ===============-->
+            <link rel="stylesheet" href="assets/css/styles.css">
+            <!-- Google Font Link Poppins -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+                <!-- Font awosome Link -->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+   </head>
+   <body onload="slider()">
+      <!--=============== HEADER ===============-->
+      <header class="header">
+         <nav class="nav container">
+            <div class="nav__data">
+               <a href="#" class="nav__logo">
+                  <i class="ri-planet-line"></i> Divtag
+               </a>
+               
+               <div class="nav__toggle" id="nav-toggle">
+                  <i class="ri-menu-line nav__burger"></i>
+                  <i class="ri-close-line nav__close"></i>
+               </div>
+            </div>
+
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <li><a href="#" class="nav__link">Home</a></li>
+
+                  <li><a href="#" class="nav__link">Company</a></li>
+
+                  <!--=============== DROPDOWN 1 ===============-->
+                  <li class="dropdown__item">
+                     <div class="nav__link">
+                        Booking <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                     </div>
+
+                     <ul class="dropdown__menu">
+                        <li>
+                           <a href="#" class="dropdown__link">
+                              <i class="ri-pie-chart-line"></i> Overview
+                           </a>                          
+                        </li>
+
+                        <li>
+                           <a href="#" class="dropdown__link">
+                              <i class="ri-arrow-up-down-line"></i> Transactions
+                           </a>
+                        </li>
+
+                        <!--=============== DROPDOWN SUBMENU ===============-->
+                        <li class="dropdown__subitem">
+                           <div class="dropdown__link">
+                              <i class="ri-bar-chart-line"></i> Reports <i class="ri-add-line dropdown__add"></i>
+                           </div>
+
+                           <ul class="dropdown__submenu">
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-file-list-line"></i> Documents
+                                 </a>
+                              </li>
+      
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-cash-line"></i> Payments
+                                 </a>
+                              </li>
+      
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-refund-2-line"></i> Refunds
+                                 </a>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  
+                  <li><a href="#" class="nav__link">Luxury Rooms</a></li>
+
+                  <!--=============== DROPDOWN 2 ===============-->
+                  <li class="dropdown__item">
+                     <div class="nav__link">
+                        Users <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                     </div>
+
+                     <ul class="dropdown__menu">
+                        <li>
+                           <a href="#" class="dropdown__link">
+                              <i class="ri-user-line"></i> Profiles
+                           </a>                          
+                        </li>
+
+                        <li>
+                           <a href="#" class="dropdown__link">
+                              <i class="ri-lock-line"></i> Accounts
+                           </a>
+                        </li>
+
+                        <li>
+                           <a href="#" class="dropdown__link">
+                              <i class="ri-message-3-line"></i> Messages
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+
+                  <li><a href="#" class="nav__link">Contact</a></li>
+               </ul>
+            </div>
+         </nav>
+      </header>
+
+      <!-- Hero Section Start -->
+      <div class="banar">
+         <div class="slider">
+             <img src="image/image1.jpg" id="sliderimage">
+         </div>
+
+         <!-- OverLey -->
+         <div class="overley">
+            <div class="brand">
+               <a href="#" class="nav__logo">
+                  <i class="ri-planet-line"></i> Divtag
+               </a>
+            </div>
+            
+
+            <!-- Text -->
+            <div class="Heading_text">
+               <h1>UNIQUE PLACE AND LUXURY HOTEL</h1>
+               <h3>LIFE ENJOY WITH </h3>
+               <h3> THE GREAT MOMENTS </h3>
+
+               <button type="reset" class="btn">ROOMS & SUTIES</button>
+            </div>
+
+            <div class="check_now">
+               <div class="input">
+                  <p>CHECK IN</p>
+                  <input type="date">
+               </div>
+
+               <div class="input">
+                  <p>CHECK Out</p>
+                  <input type="date">
+               </div>
+
+               <div class="input">
+                  <p>Room</p>
+                  <input type="text" placeholder="Standart Room Size">
+               </div>
+
+               <div class="input">
+                  <button type="submit" class="btn_2" >Check Now</button>
+               </div>
+            </div>
+             
+         </div>
+ 
+     </div>
+
+
+<section class="Luxreous_room">
+   <div class="iamge">
+      <img src="image/Hottle_image_4.jpg" alt="">
+
+      <div class="overley">
+         <img src="image/Hottle_image_5.jpg" alt="" class="Overley_image_1">
+
+         <div class="Overley_image_2">
+            <img src="image/image1.jpg" >
+         </div>
+
+         <div class="playButtone">
+            <a href="#"><i class="fa-solid fa-play"></i></a>
+         </div>
+      </div>
+   </div>
+
+
+   <div class="side_text">
+      <h1>HOEXR LUXURY HOTEL</h1>
+
+      <h3>Most Safe & Rated
+         Hotel in London.</h3>
+
+         <p class="text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam quod quaerat unde doloribus, distinctio dolor deserunt architecto maxime placeat sapiente fugiat dolorum ex cupiditate non, alias velit dicta hic nihil.
+         </p>
+         <div class="icons">
+            <div class="icon_text">
+               <i class="fa-regular fa-lights-holiday"></i>
+               <p>
+                  The Best Lighting
+               </p>
+            </div>
+
+            <div class="icon_text">
+               <i class="fa-solid fa-person-swimming"></i>
+               <p>
+                  The Best swimming
+               </p>
+            </div>
+
+            <div class="icon_text">
+               <button type="submit" class="btn_2" >DISCOVER MORE</button>
+            </div>
+
+            <div class="icon_text icon_text3" >
+               <i class="fa-solid fa-phone-volume"></i>
+               <p>
+                  (+880)1990948704
+               </p>
+            </div>
+         </div>
+   </div>
+</section>
+
+
+<!-- >>>>>>>>>>>>>>>>>>>>>>>>> Lexrious Room Card Satrt >>>>>>>>>>>>>>>>>>>>>>>>> -->
+<section class="lexrious_room_card">
+   <h1>HOEXR LUXURY ROOMS</h1>
+   <h3> Luxury Rooms & Suites</h3>
+
+
+   <div class="room_card">
+      <div class="card">
+         <img src="image/card1.jpg" alt="">
+         <div class="intro">
+               <h1 class="heading">Junior Suite</h1>
+               <h4>150$ / NIGHT</h4>
+
+               <div class="pratext">
+                  <button type="submit" class="btn_2" id="btn_border" >Book Now</button>
+
+                  <div class="Pratext_icon">
+                     <i class="fa-solid fa-wifi"></i>
+                     <i class="fa-solid fa-bed"></i>
+                     <i class="fa-solid fa-bath"></i>
+                     <i class="fa-solid fa-shower"></i>
+                  </div>
+               </div>
+         </div>
+      </div>
+
+
+      <div class="card">
+         <img src="image/card-2.jpg" alt="">
+         <div class="intro">
+               <h1 class="heading">Family Room</h1>
+               <h4>200$ / NIGHT</h4>
+
+               <div class="pratext">
+                  <button type="submit" class="btn_2" id="btn_border" >Book Now</button>
+
+                  <div class="Pratext_icon">
+                     <i class="fa-solid fa-wifi"></i>
+                     <i class="fa-solid fa-bed"></i>
+                     <i class="fa-solid fa-bath"></i>
+                     <i class="fa-solid fa-shower"></i>
+                  </div>
+               </div>
+         </div>
+      </div>
+
+
+      <div class="card">
+         <img src="image/card-3.jpg" alt="">
+         <div class="intro">
+               <h1 class="heading">Double Room</h1>
+               <h4>210$ / NIGHT</h4>
+
+               <div class="pratext">
+                  <button type="submit" class="btn_2" id="btn_border" >Book Now</button>
+
+                  <div class="Pratext_icon">
+                     <i class="fa-solid fa-wifi"></i>
+                     <i class="fa-solid fa-bed"></i>
+                     <i class="fa-solid fa-bath"></i>
+                     <i class="fa-solid fa-shower"></i>
+                  </div>
+               </div>
+         </div>
+      </div>
+
+
+      <div class="card">
+         <img src="image/card-4.jpg" alt="">
+         <div class="intro">
+               <h1 class="heading">Delux Room</h1>
+               <h4>300$ / NIGHT</h4>
+
+               <div class="pratext">
+                  <button type="submit" class="btn_2" id="btn_border" >Book Now</button>
+
+                  <div class="Pratext_icon">
+                     <i class="fa-solid fa-wifi"></i>
+                     <i class="fa-solid fa-bed"></i>
+                     <i class="fa-solid fa-bath"></i>
+                     <i class="fa-solid fa-shower"></i>
+                  </div>
+               </div>
+         </div>
+      </div>
+
+
+   </div>
+</section>
+<!-- >>>>>>>>>>>>>>>>>>>>>>>>> Lexrious Room Card End >>>>>>>>>>>>>>>>>>>>>>>>> -->
+
+<!-- >>>>>>>>>>>>>>>>>>>>>>>>> Services Section Start  >>>>>>>>>>>>>>>>>>>>>>>>> -->
+
+<section class="services">
+   <div class="services_heading">
+      <h1>HOEXR SERVICES</h1>
+      <h2>Hotel Facilities</h2>
+   </div>
+
+
+   <div class="services_card">
+      <div class="Card">
+         <!-- desinge -->
+         <div class="span"></div>
+
+         <i class="fa-duotone fa-bed-front"></i>
+         <h1>Room Services</h1>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi sed illum incidunt placeat modi.</p>
+      </div>
+
+      <div class="Card">
+         <!-- desinge -->
+         <div class="span"></div>
+
+         <i class="fa-solid fa-water-ladder"></i>
+         <h1>Swimming Pool</h1>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi sed illum incidunt placeat modi.</p>
+      </div>
+
+      <div class="Card">
+         <!-- desinge -->
+         <div class="span"></div>
+
+         <i class="fa-solid fa-car"></i>
+         <h1>Parking Space</h1>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi sed illum incidunt placeat modi.</p>
+      </div>
+
+
+      <div class="Card">
+         <!-- desinge -->
+         <div class="span"></div>
+
+         <i class="fa-solid fa-mug-saucer"></i>
+         <h1>Breakfast</h1>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi sed illum incidunt placeat modi.</p>
+      </div>
+
+      <div class="Card">
+         <!-- desinge -->
+         <div class="span"></div>
+
+         <i class="fa-solid fa-truck-pickup"></i>
+         <h1>Pick Up & Drop</h1>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi sed illum incidunt placeat modi.</p>
+      </div>
+
+      <div class="Card">
+         <!-- desinge -->
+         <div class="span"></div>
+
+         <i class="fa-solid fa-wifi"></i>
+         <h1>Fibre Internet</h1>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi sed illum incidunt placeat modi.</p>
+      </div>
+   </div>
+</section>
+<!-- >>>>>>>>>>>>>>>>>>>>>>>>> Services Section End  >>>>>>>>>>>>>>>>>>>>>>>>> -->
+
+<!-- >>>>>>>>>>>>>>>>>>>>>>>>> Promosional Section Start  >>>>>>>>>>>>>>>>>>>>>>>>> -->
+
+<section class="promotional">
+   <img src="image/backimage.jpg" alt="">
+   <div class="overley2">
+         <i class="fa-solid fa-play"></i>
+
+         <h1>PROMOTIONAL VIDEO</h1>
+
+         <h2>Book Hotal Rooms,</h2>
+         <h3>et Deals & Book Flights Online.</h3>
+   </div>
+</section>
+
+
+
+<section class="anothe_feture">
+   <div class="row_card">
+
+      <div class="cards">
+         <div class="card_image">
+            <img src="image/gume_center_image.jpg" alt="">
+         </div>
+
+         <div class="texts">
+            <h1>MODERN</h1>
+            <h2>Fitness Center</h2>
+            <p>Restaurant inilla duiman at elit finibus viverra nec a lacus themo the
+               nesudea seneoice misuscipit non sagie the fermen ziverra tristiue duru
+               the ivite dianne onen nivami acsestion augue artine.</p>
+
+               <button type="submit" class="btn_2 another_btn" id="btn_border" >DISCOVER MORE</button>
+         </div>
+      </div>
+
+      <div class="cards">
+         <div class="texts">
+            <h1>DISCOVER</h1>
+            <h2>The Restaurant</h2>
+            <p>Restaurant inilla duiman at elit finibus viverra nec a lacus themo the
+               nesudea seneoice misuscipit non sagie the fermen ziverra tristiue duru
+               the ivite dianne onen nivami acsestion augue artine.</p>
+
+               <button type="submit" class="btn_2 another_btn" id="btn_border" >DISCOVER MORE</button>
+         </div>
+
+         <div class="card_image">
+            <img src="image/resurent_image.jpg" alt="">
+         </div>
+      </div>
+
+
+      
+      <div class="cards">
+         <div class="card_image">
+            <img src="image/spa_imag.jpg" alt="">
+         </div>
+
+         <div class="texts">
+            <h1>EXPERIENCES</h1>
+            <h2>Spa Center</h2>
+            <p>Restaurant inilla duiman at elit finibus viverra nec a lacus themo the
+               nesudea seneoice misuscipit non sagie the fermen ziverra tristiue duru
+               the ivite dianne onen nivami acsestion augue artine.</p>
+
+               <button type="submit" class="btn_2 another_btn" id="btn_border" >DISCOVER MORE</button>
+         </div>
+      </div>
+
+
+      <div class="cards">
+         <div class="texts">
+            <h1>MODERN</h1>
+            <h2>Fitness Center</h2>
+            <p>Restaurant inilla duiman at elit finibus viverra nec a lacus themo the
+               nesudea seneoice misuscipit non sagie the fermen ziverra tristiue duru
+               the ivite dianne onen nivami acsestion augue artine.</p>
+
+               <button type="submit" class="btn_2 another_btn" id="btn_border" >DISCOVER MORE</button>
+         </div>
+
+         <div class="card_image">
+            <img src="image/gume_center_image.jpg" alt="">
+         </div>
+      </div>
+
+
+      </div>
+   </div>
+</section>
+<!-- ><><><><><><>><><><><> Testimonial Start><><><><><><>><><><><> -->
+<section class="testimonial">
+   <div class="overley4">
+      <div class="card"></div>
+
+      <div class="teste_card">
+         <div class="texts">
+            <h1>WHAT SAYS FOR CUSTOMER</h1>
+            <h2>What Client's Say?</h2>
+         </div>
+
+         <div class="image_text">
+            <img src="image/profile2.jpg" alt="">
+
+            <div class="content">
+               <div class="icon">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+               </div>
+
+               <p>Lorem ipsum dolor sit amet consectetur 
+                  adipisicing elit. Temporibus officiis 
+                  quisquam fuga iusto! Quibusdam, 
+                  voluptatem.</p>
+
+                  <h4>Rakibul Islam</h4>
+                  <h5>Guest Revew</h5>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+
+<section class="resturent_froute">
+   <div class="head_text">
+      <h1>HOEXR BEST MENUS</h1>
+      <h2>Specialities Foods</h2>
+   </div>
+
+   <div class="menu">
+      <div class="left_menu">
+         <div class="menu_card">
+            <img src="image/item1.jpg" alt="">
+            
+            <div class="text_style">
+               <div class="uptext">
+                  <h3>Lorem Ipsum is that it</h3>
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+
+               <div class="Downtext">
+                  <h3>Pasta With Fish</h3>
+                  <span class="border_botom"></span>
+                  <h4>100$</h4>
+               </div>
+
+               <div class="bt">
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+            </div>
+         </div>
+
+
+
+         <div class="menu_card">
+            <img src="image/item2.jpg" alt="">
+            
+            <div class="text_style">
+               <div class="uptext">
+                  <h3>Lorem Ipsum is that it</h3>
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+
+               <div class="Downtext">
+                  <h3>Pasta With Fish</h3>
+                  <span class="border_botom"></span>
+                  <h4>100$</h4>
+               </div>
+
+               <div class="bt">
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+            </div>
+         </div>
+
+
+
+         
+         <div class="menu_card">
+            <img src="image/item3.jpg" alt="">
+            
+            <div class="text_style">
+               <div class="uptext">
+                  <h3>Lorem Ipsum is that it</h3>
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+
+               <div class="Downtext">
+                  <h3>Pasta With Fish</h3>
+                  <span class="border_botom"></span>
+                  <h4>100$</h4>
+               </div>
+
+               <div class="bt">
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+            </div>
+         </div>
+
+
+
+         
+         <div class="menu_card">
+            <img src="image/item4.jpg" alt="">
+            
+            <div class="text_style">
+               <div class="uptext">
+                  <h3>Lorem Ipsum is that it</h3>
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+
+               <div class="Downtext">
+                  <h3>Pasta With Fish</h3>
+                  <span class="border_botom"></span>
+                  <h4>100$</h4>
+               </div>
+
+               <div class="bt">
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+            </div>
+         </div>
+      </div>
+      <!-- left -->
+
+
+      <div class="left_menu">
+         <div class="menu_card">
+            <img src="image/item5.jpg" alt="">
+            
+            <div class="text_style">
+               <div class="uptext">
+                  <h3>Lorem Ipsum is that it</h3>
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+
+               <div class="Downtext">
+                  <h3>Pasta With Fish</h3>
+                  <span class="border_botom"></span>
+                  <h4>100$</h4>
+               </div>
+
+               <div class="bt">
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+            </div>
+         </div>
+
+
+
+         <div class="menu_card">
+            <img src="image/item6.jpg" alt="">
+            
+            <div class="text_style">
+               <div class="uptext">
+                  <h3>Lorem Ipsum is that it</h3>
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+
+               <div class="Downtext">
+                  <h3>Pasta With Fish</h3>
+                  <span class="border_botom"></span>
+                  <h4>100$</h4>
+               </div>
+
+               <div class="bt">
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+            </div>
+         </div>
+
+
+
+         
+         <div class="menu_card">
+            <img src="image/item7.jpg" alt="">
+            
+            <div class="text_style">
+               <div class="uptext">
+                  <h3>Lorem Ipsum is that it</h3>
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+
+               <div class="Downtext">
+                  <h3>Pasta With Fish</h3>
+                  <span class="border_botom"></span>
+                  <h4>100$</h4>
+               </div>
+
+               <div class="bt">
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+            </div>
+         </div>
+
+
+
+         
+         <div class="menu_card">
+            <img src="image/item8.jpg" alt="">
+            
+            <div class="text_style">
+               <div class="uptext">
+                  <h3>Lorem Ipsum is that it</h3>
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+
+               <div class="Downtext">
+                  <h3>Pasta With Fish</h3>
+                  <span class="border_botom"></span>
+                  <h4>100$</h4>
+               </div>
+
+               <div class="bt">
+                  <button type="submit" class="btn_2 another_btn change" id="btn_border" >STARTER</button>
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--=============== MAIN JS ===============-->
+      <script src="assets/js/main.js"></script>
+   </body>
+</html>
