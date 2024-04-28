@@ -1367,6 +1367,133 @@ border-radius: 10px;
 color: #aa8453;
 }
 
+/* Hotel Booking Section Start */
+
+
+.hotel_booking{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+.hotel_booking .from{
+  width:400px;
+  padding: 4rem;
+  background: #f8f5f0;
+}
+
+.hotel_booking .from form {
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: 1rem;
+}
+
+.hotel_booking .from form input{
+  border: 1px solid #d6d6d6;
+  padding: 2rem 1rem;
+  color: #222222;
+  font-size: 1.8rem;
+}
+
+.hotel_booking .from form input:focus{
+  border: 1px solid #aa8453;
+}
+
+
+.hotel_booking .from h1{
+  font-size: 2rem;
+  letter-spacing: 8px;
+  color: #787878;
+  font-weight: 400;
+  padding-bottom: 2rem;
+}
+
+.hotel_booking .from h2{
+  font-size: 4rem;
+  color: #222222;
+  font-weight: 500;
+  padding-bottom: 2rem;
+}
+
+.right_side_text{
+  width: 700px;
+  position: relative;
+}
+
+.right_side_text img{
+  width: 100%;
+  height: 100%;
+}
+
+.overley5{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.685),rgba(0, 0, 0, 0.637));
+  position: absolute;
+  top: 0;
+  padding: 4rem;
+}
+.overley5 h3 {
+  font-size: 2.5rem;
+  color: #787878;
+  letter-spacing: 8px;
+  font-weight: 500;
+}
+
+.overley5 h4 {
+  font-size: 4.5rem;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 2rem 0;
+}
+
+.overley5 p {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1569,6 +1696,7 @@ color: #aa8453;
   grid-template-columns: repeat(1,1fr);
   gap: 3rem;
 }
+
 
 
 }
