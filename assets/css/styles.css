@@ -25,6 +25,21 @@
   --z-fixed: 100;
 }
 
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(82, 60%, 28%);
+  --title-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 35%);
+  --body-color: hsl(0, 0%, 95%);
+  --container-color: hsl(0, 0%, 100%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --h2-font-size: 1.25rem;
+  --small-font-size: .813rem;
+}
+
 /*========== Responsive typography ==========*/
 @media screen and (min-width: 1024px) {
   :root {
@@ -421,7 +436,7 @@ a {
 .Heading_text h3{
   color: white;
   font-size: 7rem;
-  font-weight: 500;
+  font-weight: 400;
   padding-bottom: 2rem;
 }
 .btn{
@@ -1378,7 +1393,7 @@ color: #aa8453;
 }
 
 .hotel_booking .from{
-  width:400px;
+  width:100%;
   padding: 4rem;
   background: #f8f5f0;
 }
@@ -1417,7 +1432,7 @@ color: #aa8453;
 }
 
 .right_side_text{
-  width: 700px;
+  width: 100%;
   position: relative;
 }
 
@@ -1453,28 +1468,349 @@ color: #aa8453;
   font-size: 1.5rem;
   color: #ffffff;
   font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 3rem;
+  padding-bottom:3rem ;
+}
+.overley5 .icons{
+  display: flex;
+  gap: 1.5rem;
+}
+
+.overley5 .icons i{
+  font-size: 3.5rem;
+  color: #cc954e;
+}
+
+.overley5 .icons .text h5{
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.overley5 .icons .text h2{
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: 400;
 }
 
 
+/* ================================= */
 
 
 
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1120px) {
+  :root {
+    --h2-font-size: 1.5rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*=============== BASE ===============*/
 
 
+.containers img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== CARD ===============*/
+.containers {
+  display: grid;
+  place-items: center;
+  margin-inline: 1.5rem;
+  padding-block: 5rem;
+}
+
+.card__container {
+  display: grid;
+  row-gap: 3.5rem;
+}
+
+.card__article {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card__img {
+  width: 328px;
+  border-radius: 1.5rem;
+}
+
+.card__data {
+  width: 280px;
+  background-color: var(--container-color);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+
+.card__description {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: .25rem;
+}
+
+.card__title {
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+  color: var(--title-color);
+  margin-bottom: .75rem;
+}
+
+.card__button {
+  text-decoration: none;
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  color: var(--first-color);
+}
+
+.card__button:hover {
+  text-decoration: underline;
+}
+
+/* Naming animations in hover */
+.card__article:hover .card__data {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.card__article:hover {
+  animation: remove-overflow 2s forwards;
+}
+
+.card__article:not(:hover) {
+  animation: show-overflow 2s forwards;
+}
+
+.card__article:not(:hover) .card__data {
+  animation: remove-data 1s forwards;
+}
+
+/* Card animation */
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(-7rem);
+  }
+}
+
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data {
+  0% {
+    transform: translateY(-7rem);
+  }
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(10rem);
+  }
+}
+
+@keyframes show-overflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+  50% {
+    overflow: hidden;
+  }
+}
 
 
+.card__container{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2rem;
+}
+
+.icon{
+  display: flex;
+  gap: 2rem;
+}
+
+.icon .icons{
+  display: flex;
+  gap: 1rem;
+}
+
+.icon .icons i{
+  font-size: 2rem;
+  color: #aa8453;
+}
+
+.icon .icons h5{
+  font-size: 1rem;
+}
+.card__data p{
+  font-size: 1.5rem;
+  padding-top: 2rem;
+}
+.carding{
+  border-radius: 10px;
+  margin-top: 2rem;
+}
 
 
+.cards h1{
+  text-align: center;
+  font-size: 2rem;
+  color: #787878;
+  letter-spacing: 8px;
+  font-weight: 400;
+  padding-bottom: 2rem;
+}
 
 
+.cards h2{
+  text-align: center;
+  font-size: 4rem;
+  color: #222222;
+  letter-spacing: 1px;
+  font-weight: 500;
+  padding-bottom: 2rem;
+}
 
+/* ===================Footer============== */
 
+.footer{
+  width: 100%;
+  height: 100%;
+  background: #222222;
+}
 
+.footer footer{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 2rem;
+}
 
+.footer footer p{
+  font-size: 1.5rem;
+  padding: 2rem 0;
+  letter-spacing: 1px;
+  color: #787878;
+}
+.footer footer .brand_social .social{
+display: flex;
+gap: 1rem;
+}
+.footer footer .brand_social .social a i{
+  width: 40px;
+  height: 40px;
+  font-size: 2rem;
+  color: #adadad;
+  border: 2px solid #adadad;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 40px;
+  gap: 1rem;
+  transition: all 0.5s ease;
+}
 
+.footer footer .brand_social .social a i:hover{
+  color: #aa8453;
+  border: 2px solid #aa8453;
+}
+.footer footer .Services_link h1{
+  font-size: 2rem;
+  color: white;
+  font-weight: 500;
+}
 
+.footer footer .Services_link .link .links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
 
+.footer footer .Services_link .link .links i{
+  font-size: 1.5rem;
+  color: #6f6f6f;
+}
 
+.footer footer .Services_link .link .links a{
+  font-size: 1.8rem;
+  color: #6f6f6f;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.footer footer .Services_link .link .links a::before{
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width:0;
+height: 2%;
+background-color: #cc954e;
+transition: all 0.5s ease;
+}
+
+.footer footer .Services_link .link .links a:hover::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2%;
+  background-color: #cc954e;
+  }
+  .footer footer .informetio{
+    display: flex;
+  }
+  .footer footer .informetio h1{
+    font-size: 2rem;
+    color: white;
+    font-weight: 500;
+    padding-bottom: 2rem;
+  }
+
+  .footer footer .informetio .info{
+    display: flex;
+    gap: 1rem;
+  }
+
+  .footer footer .informetio .info i{
+    font-size: 2rem;
+    color: #aa8453;
+  }
+
+  .footer footer .informetio .info h2{
+    font-size: 1.6rem;
+    color: #fff;
+  }
+
+  .footer footer .informetio {
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+  }
+
+  .newsleter h2{
+    font-size: 2rem;
+    color: white;
+    font-weight: 500;
+    padding-bottom: 2rem;
+  }
 
 
 
@@ -1697,6 +2033,51 @@ color: #aa8453;
   gap: 3rem;
 }
 
+.hotel_booking{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: 2rem;
+}
+
+.right_side_text img{
+  width: 100%;
+  height: 130vh;
+}
+
+
+.hotel_booking .from h1{
+  font-size: 1.5rem;
+  letter-spacing: 8px;
+  color: #787878;
+  font-weight: 400;
+  padding-bottom: 2rem;
+}
+
+.hotel_booking .from h2{
+  font-size: 3rem;
+  color: #222222;
+  font-weight: 500;
+  padding-bottom: 2rem;
+}
+
+
+.card__container{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: 2rem;
+}
+
+
+.cards h2{
+  text-align: center;
+  font-size: 3rem;
+  color: #222222;
+  letter-spacing: 1px;
+  font-weight: 500;
+  padding-bottom: 2rem;
+}
 
 
 }
