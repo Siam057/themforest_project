@@ -1,7 +1,7 @@
 
 /*=============== VARIABLES CSS ===============*/
 :root {
-  --header-height: 3.5rem;
+  --header-height: 4.5rem;
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
@@ -1805,12 +1805,59 @@ transition: all 0.5s ease;
     grid-template-columns: repeat(1,1fr);
   }
 
-  .newsleter h2{
+  .newsleter h1{
     font-size: 2rem;
     color: white;
     font-weight: 500;
     padding-bottom: 2rem;
   }
+
+  .newsleter .send input{
+    padding: 1.5rem 1rem;
+    background: transparent;
+    border: 1px solid #6f6f6f;
+    color: white;
+    flex: 1;
+    position: relative;
+  }
+
+  .newsleter .send a i{
+    width: 52px;
+    height: 52px;
+    color: #fff;
+    background: #aa8453;
+    margin-bottom : 10rem ;
+    position: absolute;
+    text-align: center;
+    line-height: 51px;
+    font-size: 2rem;
+  }
+
+  .newsleter .send a i:hover{
+    width: 52px;
+    height: 52px;
+    color: #aa845f;
+    background: #ffffff;
+    margin-bottom : 10rem ;
+    position: absolute;
+    text-align: center;
+    line-height: 51px;
+    font-size: 2rem;
+    transition: all 0.7s ease;
+  }
+
+  .copyrigt{
+    padding: 2rem;
+    text-align: center;
+    font-size: 1rem;
+    background: #6f6f6f ;
+    margin-top: 5rem;
+  }
+
+  .copyrigt a{
+    color: #f5e1c7;
+  }
+
 
 
 
@@ -2077,6 +2124,13 @@ transition: all 0.5s ease;
   letter-spacing: 1px;
   font-weight: 500;
   padding-bottom: 2rem;
+}
+
+.footer footer{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: 2rem;
 }
 
 
