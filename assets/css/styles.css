@@ -1094,6 +1094,7 @@ a {
   font-size: 2rem;
   font-weight: 500;
   letter-spacing: 8px;
+  text-align: start;
 }
 
 .anothe_feture .row_card .cards .texts h2{
@@ -1101,6 +1102,7 @@ a {
   font-weight: 500;
   padding-bottom: 2rem;
   color: #222222;
+  text-align: start;
 }
 
 .anothe_feture .row_card .cards .texts p{
@@ -1390,6 +1392,7 @@ color: #aa8453;
   height: 100%;
   display: grid;
   grid-template-columns: repeat(2,1fr);
+  margin: auto;
 }
 
 .hotel_booking .from{
